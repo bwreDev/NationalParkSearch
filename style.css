@@ -1,0 +1,10 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333333;
+    color: #ffffff;
+    text-shadow: 2px 2px black;
+}
+
