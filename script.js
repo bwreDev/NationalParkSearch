@@ -6,15 +6,21 @@ const apiKey = 'zB0CRgcuLdDGSYgi4BNIlWtGK0xvzZCKM5jgQSHq'
 
 const searchURL = 'https://developer.nps.gov/api/v1/parks';
 
+/*
+Encodes parameters and combines them with ampersands separating
+*/
+
 function formatQueryParams(params) {
     const queryItems = Object.keys(params)
         .map(key => `${encodeURIComponent(key)}=${encodeURIComponent(params[key])}`)
     return queryItems.join('&')
 }
 
+/*
+Loops over results and creates HTML elements to show data in the DOM
+*/
 
 function displayResults(responseJson) {
-    console.log(responseJson);
 
     $('#results-list').empty();
 
@@ -42,8 +48,6 @@ function getNationalParks(query, maxResults) {
     };
     const queryString = formatQueryParams(params)
     const url = searchURL + '?' + queryString;
-
-    console.log(url);
 
     /*
     Fetch request for API based on new url created above
@@ -78,4 +82,3 @@ function watchForm() {
 }
 
 $(watchForm);
-console.log('App loaded, waiting for input.');
